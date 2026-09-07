@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<script>document.documentElement.className='js';</script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Uluwatu &mdash; Helicopter Tours &amp; Transfers</title>
+<meta name="description" content="Private helicopter tours and transfers from Uluwatu — lifting off from the Bukit clifftop, along the southern coast, out to Nusa Penida and inland to the volcanoes." />
+<meta name="robots" content="noindex,nofollow" />
+<link rel="preload" as="image" href="images/hero-poster.jpg" fetchpriority="high" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+/* =========================================================================
+   DESIGN SYSTEM — measured off bulgarihotels.com/en_US/bali on 2026-08-10.
+   See: 1.2.10.uluwatu_landing_page/Uluwatu Resort Bali - Patterns for the
+        Uluwatu Landing Page.md  (§2 carries every number reproduced here).
+
+   TYPE — their site runs ONE family, Futura Std, in four cuts, self-hosted.
+   Futura is a commercial Neufville/Linotype face; we neither copy nor hotlink
+   their font files. Jost* is the closest licensable geometric revival and is
+   used here as the single family, same as their single-family approach.
+   If the operator ever licenses Futura Std, add its @font-face and change
+   ONE line: --font.
+
+   The hard rules taken from their page and enforced below:
+     · border-radius: 0 everywhere — no pills, no rounded cards
+     · no box-shadows, no gradients — hairline rules do all the separation
+     · section heads UPPERCASE at .30em tracking (their 8.1px on 27px)
+     · card titles UPPERCASE at .15em, SMALLER than body copy
+     · only the h1 is sentence case
+     · one accent colour in the whole page: warm bone #F0EDE8
+     · 80px vertical rhythm, 1170px container
+   ========================================================================= */
+:root{
+  --ink:#000000;          /* text, borders, primary fill — pure black, not a soft grey */
+  --ink-deep:#111111;     /* dark bands / footer */
+  --muted:#6b6b6b;        /* meta, captions (5.7:1 on white) */
+  --muted-2:#8d8d8d;      /* footnotes on dark */
+  --bone:#f0ede8;         /* THE accent — their single tinted band */
+  --bone-deep:#e6e2da;    /* one step down, for chips */
+  --line:#d9d5cf;         /* hairline on light */
+  --line-dark:#2e2e2e;    /* hairline on dark */
+  --paper:#ffffff;
+  --font:'Jost','Futura Std','Century Gothic',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --maxw:1170px;          /* their Bootstrap .container, to the pixel */
+  --rhythm:clamp(72px,9vw,120px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--font);font-weight:300;
+  color:var(--ink);background:var(--paper);
+  font-size:16px;line-height:1.62;
+  overflow-x:hidden;-webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4{font-weight:400;line-height:1.12;color:var(--ink)}
+
+.container{width:min(var(--maxw),90vw);margin-inline:auto}
+.section{padding:var(--rhythm) 0}
+.section--bone{background:var(--bone)}
+.section--dark{background:var(--ink-deep);color:#fff}
+
+/* ---------- SECTION HEADS — the signature move ---------- */
+.eyebrow{
+  display:inline-block;text-transform:uppercase;letter-spacing:.26em;
+  font-size:.7rem;font-weight:500;color:var(--muted);margin-bottom:20px;
+}
+h2.title{
+  font-size:clamp(1.35rem,2.6vw,1.7rem);
+  text-transform:uppercase;letter-spacing:.30em;   /* 8.1px on 27px */
+  font-weight:500;margin-bottom:24px;
+}
+.lead{font-size:1rem;font-weight:300;color:#2b2b2b;max-width:62ch;line-height:1.75}
+.center{text-align:center}
+.center .lead{margin-inline:auto}
+.rule{width:44px;height:1px;background:var(--ink);margin:0 auto 26px}
+
+/* ---------- BUTTONS — square, 2px, .3em tracking, wide ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  border-radius:0;border:2px solid var(--ink);background:transparent;color:var(--ink);
+  font-family:inherit;font-size:.76rem;font-weight:500;
+  text-transform:uppercase;letter-spacing:.24em;
+  padding:16px 34px;cursor:pointer;transition:background .25s ease,color .25s ease,border-color .25s ease;
+}
+.btn-solid{background:var(--ink);color:#fff}
+.btn-solid:hover{background:#fff;color:var(--ink)}
+.btn-line:hover{background:var(--ink);color:#fff}
+.btn-on-dark{border-color:#fff;color:#fff;background:transparent}
+.btn-on-dark:hover{background:#fff;color:var(--ink)}
+.btn-hero{background:#fff;color:var(--ink);border-color:#fff}
+.btn-hero:hover{background:transparent;color:#fff}
+.btn svg{flex:none}
+
+/* ---------- WORDMARK (typographic stand-in — no partner logo asset is used) ---------- */
+.wm{display:flex;flex-direction:column;line-height:1}
+.wm .n{font-size:1.34rem;font-weight:400;letter-spacing:.30em;color:#fff;text-transform:uppercase;transition:color .35s ease}
+.wm .t{font-size:.52rem;font-weight:400;letter-spacing:.34em;color:rgba(255,255,255,.7);margin-top:8px;text-transform:uppercase;transition:color .35s ease}
+header.nav.scrolled .wm .n{color:var(--ink)}
+header.nav.scrolled .wm .t{color:var(--muted)}
+
+/* ---------- NAV ---------- */
+header.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 0;transition:background .35s ease,padding .35s ease,border-color .35s ease;border-bottom:1px solid transparent}
+header.nav.scrolled{background:#fff;padding:15px 0;border-bottom-color:var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
+nav.links{display:flex;gap:34px;align-items:center}
+nav.links a{
+  font-size:.7rem;font-weight:400;text-transform:uppercase;letter-spacing:.20em;
+  color:rgba(255,255,255,.9);position:relative;padding-bottom:5px;transition:color .25s ease;
+}
+nav.links a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:currentColor;transition:width .28s ease}
+nav.links a:hover::after,nav.links a.active::after{width:100%}
+header.nav.scrolled nav.links a{color:var(--muted)}
+header.nav.scrolled nav.links a:hover,header.nav.scrolled nav.links a.active{color:var(--ink)}
+.nav-cta{border:2px solid rgba(255,255,255,.75);color:#fff;padding:11px 22px;font-size:.66rem;font-weight:500;text-transform:uppercase;letter-spacing:.22em;white-space:nowrap;transition:all .25s ease}
+.nav-cta:hover{background:#fff;color:var(--ink);border-color:#fff}
+header.nav.scrolled .nav-cta{border-color:var(--ink);color:var(--ink)}
+header.nav.scrolled .nav-cta:hover{background:var(--ink);color:#fff}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px}
+.burger span{width:26px;height:1px;background:#fff;transition:.3s}
+header.nav.scrolled .burger span{background:var(--ink)}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;color:#fff;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:-2;background:#111}
+.hero-bg video,.hero-bg .hero-fallback{width:100%;height:100%;object-fit:cover;object-position:center 45%}
+.hero-bg video{opacity:0;transition:opacity .6s ease}
+.hero-bg video.ready{opacity:1}
+.hero-bg .hero-fallback{display:none;position:absolute;inset:0}
+@media (prefers-reduced-motion:reduce){.hero-bg video{display:none}.hero-bg .hero-fallback{display:block}}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:rgba(0,0,0,.42)}
+.hero-inner{padding-top:96px;max-width:900px}
+.hero .kicker{text-transform:uppercase;letter-spacing:.40em;font-size:.7rem;font-weight:400;color:rgba(255,255,255,.88);margin-bottom:28px}
+.hero h1{color:#fff;font-size:clamp(2.4rem,5.6vw,4.4rem);font-weight:200;line-height:1.08;margin-bottom:26px;letter-spacing:.01em}
+.hero .hero-sub{font-size:clamp(1rem,1.6vw,1.16rem);font-weight:300;color:rgba(255,255,255,.9);max-width:44ch;margin-bottom:40px;line-height:1.7}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap}
+.scroll-hint{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;font-size:.6rem;letter-spacing:.32em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.mouse{width:20px;height:32px;border:1px solid rgba(255,255,255,.45);position:relative}
+.mouse::after{content:"";position:absolute;top:6px;left:50%;transform:translateX(-50%);width:1px;height:7px;background:rgba(255,255,255,.8);animation:sc 1.7s infinite}
+@keyframes sc{0%{opacity:0;transform:translate(-50%,0)}45%{opacity:1}100%{opacity:0;transform:translate(-50%,11px)}}
+
+/* ---------- FEATURE PILLS ---------- */
+.stats{background:var(--ink-deep);padding:30px 0}
+.feature-pills{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 36px}
+.feature-pills li{display:flex;align-items:center;gap:12px;color:rgba(255,255,255,.88);font-size:.72rem;font-weight:400;text-transform:uppercase;letter-spacing:.16em;white-space:nowrap}
+.feature-pills .dot{width:4px;height:4px;background:#fff;flex:none}
+/* wide screens: all five pills on ONE line — type steps down just enough to fit */
+@media (min-width:1140px){
+  .stats .container{width:min(1600px,98vw)}
+  .feature-pills{flex-wrap:nowrap;justify-content:center;gap:0 18px}
+  .feature-pills li{font-size:.6rem;letter-spacing:.1em;gap:8px}
+}
+
+/* ---------- STATEMENT BAND ---------- */
+.band{position:relative;height:clamp(240px,36vw,460px);overflow:hidden}
+.band img{width:100%;height:100%;object-fit:cover}
+.band .band-ov{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:0 6vw;background:rgba(0,0,0,.34)}
+.band .band-ov p{color:#fff;font-size:clamp(1.15rem,2.6vw,2rem);font-weight:200;text-align:center;letter-spacing:.06em;line-height:1.35}
+
+/* ---------- CANVAS / EDITORIAL ---------- */
+.canvas-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(34px,5vw,76px);align-items:center}
+.canvas-copy p{font-size:1rem;font-weight:300;color:#2b2b2b;line-height:1.85;margin-bottom:18px;max-width:52ch}
+.canvas-copy p:last-child{margin-bottom:0}
+.canvas-copy .drop{font-size:clamp(1.1rem,1.8vw,1.28rem);font-weight:300;color:var(--ink)}
+.canvas-img img{width:100%;aspect-ratio:4/5;object-fit:cover}
+
+/* ---------- TOURS ---------- */
+.tours-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:56px}
+.tour{background:#fff;display:flex;flex-direction:column}
+.tour-figure{position:relative;display:block;width:100%;padding:0;border:0;background:var(--bone);cursor:zoom-in;font:inherit;color:inherit}
+.tour-figure img{width:100%;height:auto;display:block}
+.zoom-badge{
+  position:absolute;top:0;right:0;width:46px;height:46px;
+  background:var(--ink);color:#fff;display:grid;place-items:center;
+  pointer-events:none;opacity:.86;transition:opacity .25s ease,transform .25s ease;
+}
+.tour-figure:hover .zoom-badge,.tour-figure:focus-visible .zoom-badge{opacity:1;transform:scale(1.06)}
+.tour-figure:focus-visible{outline:2px solid var(--ink);outline-offset:-2px}
+.tour-body{padding:clamp(22px,2.4vw,30px);display:flex;flex-direction:column;margin-top:auto}
+.price{border-top:1px solid var(--line);padding-top:20px;margin-top:auto;margin-bottom:22px;display:flex;flex-direction:column;gap:6px}
+.price-label{font-size:.6rem;text-transform:uppercase;letter-spacing:.22em;color:var(--muted);font-weight:500}
+.price strong{font-size:1.5rem;font-weight:300;letter-spacing:.02em}
+.tour .btn{width:100%}
+.note{margin-top:28px;font-size:.8rem;font-weight:300;color:var(--muted);text-align:center;max-width:80ch;margin-inline:auto;line-height:1.75}
+.note strong{color:var(--ink);font-weight:500}
+
+/* ---------- TRANSFERS ---------- */
+.vip-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:30px;margin-top:56px}
+.vip-card{border:1px solid var(--line);background:#fff;display:flex;flex-direction:column}
+.vip-photo{height:230px;overflow:hidden}
+.vip-photo img{width:100%;height:100%;object-fit:cover}
+.vip-body{padding:clamp(26px,3vw,34px);display:flex;flex-direction:column;flex:1}
+.vip-tag{align-self:flex-start;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink);background:var(--bone);padding:7px 12px;margin-bottom:18px;font-weight:500}
+.vip-body h3{font-size:1.34rem;font-weight:200;margin-bottom:10px;letter-spacing:.03em}
+.vip-note{font-size:.86rem;font-weight:300;color:var(--muted);margin-bottom:20px}
+
+.tr-title{font-size:clamp(1.1rem,2vw,1.35rem);text-transform:uppercase;letter-spacing:.24em;font-weight:500;margin:64px 0 26px;text-align:center}
+.tr-wrap{overflow-x:auto;border:1px solid var(--line)}
+.tr-table{width:100%;border-collapse:collapse;min-width:640px;background:#fff}
+.tr-table th{background:var(--ink);color:#fff;text-align:left;padding:16px 22px;font-size:.62rem;letter-spacing:.20em;text-transform:uppercase;font-weight:500}
+.tr-table th:nth-child(2),.tr-table td:nth-child(2){text-align:center;white-space:nowrap}
+.tr-table th:last-child,.tr-table td:last-child{text-align:right}
+.tr-table td{padding:16px 22px;border-top:1px solid var(--line);font-size:.9rem;font-weight:300;color:#2b2b2b}
+.tr-table tbody tr:hover{background:var(--bone)}
+.tr-table td:first-child{color:var(--ink);font-weight:400}
+.tr-table td:last-child{font-weight:500;color:var(--ink);white-space:nowrap}
+.tr-table td .sub{display:block;font-size:.74rem;color:var(--muted);margin-top:3px;font-weight:300}
+.tr-cta{display:flex;justify-content:center;margin-top:36px}
+
+/* ---------- PICNICS ---------- */
+.pk-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:56px}
+.pk-card{border:1px solid var(--line);background:#fff;display:flex;flex-direction:column}
+.pk-photo{height:200px;overflow:hidden}
+.pk-photo img{width:100%;height:100%;object-fit:cover}
+.pk-body{padding:clamp(22px,2.4vw,30px);display:flex;flex-direction:column;flex:1}
+.pk-body h3{font-size:1.22rem;font-weight:200;margin-bottom:10px;letter-spacing:.03em}
+.pk-inc{font-size:.84rem;font-weight:300;color:#3a3a3a;line-height:1.7;margin-bottom:16px}
+.pk-menu{list-style:none;display:flex;flex-wrap:wrap;gap:6px;margin-bottom:22px}
+.pk-menu li{font-size:.6rem;text-transform:uppercase;letter-spacing:.1em;color:#3a3a3a;background:var(--bone);padding:5px 9px;white-space:nowrap}
+.pk-addon{margin-top:34px;border:1px solid var(--line);background:#fff;display:flex;flex-wrap:wrap;align-items:center;gap:20px 30px;padding:clamp(20px,2.4vw,28px)}
+.pk-addon-photo{width:190px;flex:none}
+.pk-addon-photo img{width:100%;aspect-ratio:3/2;object-fit:cover}
+.pk-addon .grow{flex:1 1 300px}
+.pk-addon h3{font-size:1.14rem;font-weight:300;margin-bottom:8px;letter-spacing:.03em}
+.pk-addon p{font-size:.84rem;font-weight:300;color:var(--muted);line-height:1.65}
+.pk-addon .price{border-top:0;padding-top:0;margin:0 10px 0 0}
+
+/* ---------- LOCATIONS ---------- */
+.loc-card{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);background:#fff;margin-bottom:30px}
+.loc-card.home{border-color:var(--ink)}
+.lc-photo{position:relative;min-height:340px}
+.lc-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.pin{position:absolute;z-index:2;top:0;left:0;background:rgba(255,255,255,.94);color:var(--ink);font-size:.6rem;letter-spacing:.20em;text-transform:uppercase;padding:9px 15px;font-weight:500}
+.pin.solid{background:var(--ink);color:#fff}
+.lc-body{padding:clamp(26px,3.4vw,42px)}
+.lc-region{font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);font-weight:500;margin-bottom:12px}
+.lc-body h3{font-size:1.42rem;font-weight:200;margin-bottom:18px;letter-spacing:.03em}
+.lc-body>p{font-size:.9rem;font-weight:300;color:#3a3a3a;margin-bottom:20px;line-height:1.78}
+.lc-map{border:1px solid var(--line);margin-bottom:20px}
+.lc-map img{width:100%;height:132px;object-fit:cover}
+.lc-addr{display:flex;gap:11px;align-items:flex-start;font-size:.86rem;font-weight:300;color:#3a3a3a;margin-bottom:20px;line-height:1.6}
+.lc-addr svg{flex:none;margin-top:4px}
+.coord{display:block;margin-top:7px;font-size:.7rem;font-weight:500;letter-spacing:.16em;color:var(--ink);font-variant-numeric:tabular-nums}
+.dir-link{display:inline-flex;align-items:center;gap:9px;font-size:.66rem;font-weight:500;text-transform:uppercase;letter-spacing:.20em;border-bottom:1px solid var(--ink);padding-bottom:4px}
+.dir-link:hover{color:var(--muted);border-color:var(--muted)}
+
+/* ---------- FLEET (their alternating `flip` rows) ---------- */
+.fleet-block{margin-top:68px;padding-top:68px;border-top:1px solid var(--line)}
+.fleet-block:first-of-type{margin-top:56px;padding-top:0;border-top:0}
+.fleet-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(30px,4.5vw,64px);align-items:center}
+.fleet-block.flip .fleet-grid{grid-template-columns:1.1fr .9fr}
+.fleet-block.flip .fleet-info{order:2}
+.fleet-block.flip .fleet-gallery{order:1}
+.fleet-info h3{font-size:clamp(1.6rem,2.6vw,2.1rem);font-weight:200;margin-bottom:10px;letter-spacing:.03em}
+.fleet-info .reg{font-size:.64rem;letter-spacing:.20em;text-transform:uppercase;color:var(--muted);font-weight:500;margin-bottom:28px}
+.spec{display:flex;justify-content:space-between;gap:18px;padding:14px 0;border-top:1px solid var(--line)}
+.spec .k{display:flex;align-items:center;gap:11px;font-size:.66rem;text-transform:uppercase;letter-spacing:.16em;color:var(--muted);font-weight:500}
+.spec .k svg{flex:none}
+.spec .v{font-size:.92rem;font-weight:300;color:var(--ink);text-align:right}
+.spec-note{font-size:.72rem;font-weight:300;color:var(--muted);margin-top:16px}
+.fleet-gallery{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.fleet-gallery img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3;cursor:zoom-in}
+
+/* ---------- CONTACT ---------- */
+.contact{background:var(--ink-deep);color:#fff;padding:var(--rhythm) 0}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(34px,5vw,74px);align-items:center}
+.contact .wm{margin-bottom:30px}
+.contact .wm .n{font-size:1.6rem;color:#fff}
+.contact .wm .t{color:rgba(255,255,255,.6)}
+.contact h2{color:#fff;font-size:clamp(1.35rem,2.6vw,1.7rem);text-transform:uppercase;letter-spacing:.30em;font-weight:500;margin-bottom:20px}
+.contact .sub{color:rgba(255,255,255,.76);font-weight:300;margin-bottom:38px;max-width:46ch;line-height:1.75}
+.c-block h4{color:#fff;font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;margin-bottom:18px;font-weight:500}
+.c-rows{display:flex;flex-direction:column;gap:14px}
+.c-item{display:flex;align-items:center;gap:14px;color:rgba(255,255,255,.9);font-size:.96rem;font-weight:300;transition:color .25s ease}
+.c-item:hover{color:#fff}
+.c-item .ic{width:38px;height:38px;border:1px solid var(--line-dark);display:grid;place-items:center;flex:none}
+.contact-right img{width:100%;aspect-ratio:4/5;object-fit:cover}
+
+/* ---------- WHATSAPP FLOAT ---------- */
+.wa-float{position:fixed;bottom:22px;right:22px;z-index:90;display:flex;align-items:center;gap:11px}
+.wa-label{background:#fff;color:var(--ink);font-size:.62rem;font-weight:500;text-transform:uppercase;letter-spacing:.18em;padding:12px 16px;border:1px solid var(--line);white-space:nowrap}
+.wa-icon{width:54px;height:54px;background:#25d366;color:#fff;display:grid;place-items:center;transition:transform .25s ease}
+.wa-icon svg{width:27px;height:27px}
+.wa-float:hover .wa-icon{transform:scale(1.06)}
+
+/* ---------- LIGHTBOX ---------- */
+/* Sized by WIDTH, never by height. The tour renders are tall portraits (1400x1982) and the
+   cards already show them at up to 90vw wide, so a height cap would make "enlarge" shrink
+   the map on a short window. 96vw always beats the card, and the overlay scrolls vertically. */
+.lb{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.96);display:none;overflow:auto;padding:28px 18px;cursor:zoom-out}
+.lb.open{display:block}
+.lb img{width:min(1400px,96vw);height:auto;margin:0 auto;cursor:default}
+.lb .close{position:fixed;top:14px;right:24px;font-size:2.6rem;color:#fff;cursor:pointer;line-height:1;z-index:2;font-weight:200}
+.lb .close:hover{opacity:.7}
+
+/* ---------- REVEAL ---------- */
+.reveal{opacity:1;transform:none}
+html.js .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
+html.js .reveal.in{opacity:1;transform:none}
+html.js .reveal.d1{transition-delay:.1s}
+html.js .reveal.d2{transition-delay:.2s}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:980px){
+  .tours-grid,.vip-grid,.pk-grid,.canvas-grid,.fleet-grid,.fleet-block.flip .fleet-grid,.loc-card,.contact-grid{grid-template-columns:1fr}
+  .fleet-block.flip .fleet-info{order:1}
+  .fleet-block.flip .fleet-gallery{order:2}
+  .lc-photo{min-height:230px}
+  .pk-addon-photo{width:100%}
+  .pk-addon-photo img{height:170px;aspect-ratio:auto}
+  .canvas-img img,.contact-right img{aspect-ratio:16/10}
+}
+@media (max-width:760px){
+  nav.links{position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;gap:0;padding:6px 0;border-bottom:1px solid var(--line);display:none}
+  nav.links.mobile-open{display:flex}
+  nav.links a{color:var(--muted)!important;padding:15px 26px;width:100%}
+  nav.links a::after{display:none}
+  .burger{display:flex}
+  .nav-cta{display:none}
+  .feature-pills{gap:12px 22px}
+  .feature-pills li{font-size:.64rem}
+  .wa-label{display:none}
+  h2.title{letter-spacing:.22em}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#home" class="wm" aria-label="Uluwatu — helicopter tours and transfers">
+      <span class="n">Uluwatu</span>
+      <span class="t">Helicopter</span>
+    </a>
+    <nav class="links" id="navlinks">
+      <a href="#tours">Tours</a>
+      <a href="#transfers">Transfers</a>
+      <a href="#picnics">Picnics</a>
+      <a href="#locations">Locations</a>
+      <a href="#fleet">Fleet</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="https://wa.me/6281130075555?text=Hi%21%20I%27m%20staying%20in%20Uluwatu%20and%20I%27d%20like%20to%20book%20a%20helicopter%20flight.%20Could%20you%20let%20me%20know%20what%27s%20available%3F%20please%20keep%20this%20line%20so%20the%20Uluwatu%20guest%20rate%20is%20applied" target="_blank" rel="noopener" class="nav-cta">Reservation</a>
+    <div class="burger" id="burger"><span></span><span></span><span></span></div>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <video autoplay muted loop playsinline preload="auto" poster="images/hero-poster.jpg" aria-label="Aerial footage of the Bali coastline filmed from a helicopter">
+      <source src="images/hero.webm" type="video/webm" />
+      <source src="images/hero.mp4" type="video/mp4" />
+    </video>
+    <img class="hero-fallback" src="images/hero-poster.jpg" alt="Aerial view of the Bali coastline from a helicopter" />
+  </div>
+  <div class="container hero-inner">
+    <p class="kicker reveal in">Uluwatu &middot; Bali</p>
+    <h1 class="reveal in d1">Discover the beauty<br/>from a new angle</h1>
+    <p class="hero-sub reveal in d1">Private helicopter tours and transfers from Uluwatu &mdash; lifting off from the clifftop, along the Bukit Peninsula and out across the islands.</p>
+    <div class="hero-actions reveal in d2">
+      <a href="#tours" class="btn btn-hero">Discover the tours</a>
+      <a href="#transfers" class="btn btn-on-dark">Arrive by air</a>
+    </div>
+  </div>
+  <div class="scroll-hint"><div class="mouse"></div>Scroll</div>
+</section>
+
+<!-- ===== FEATURE PILLS ===== -->
+<section class="stats">
+  <div class="container">
+    <ul class="feature-pills reveal"><li><span class="dot"></span>Brand-new helicopter fleet</li><li><span class="dot"></span>International safety standards</li><li><span class="dot"></span>World-class professional pilots</li><li><span class="dot"></span>Landing options at any location</li><li><span class="dot"></span>Best price guarantee</li></ul>
+  </div>
+</section>
+
+<!-- ===== THE SKY IS OUR CANVAS ===== -->
+<section class="section">
+  <div class="container canvas-grid">
+    <div class="canvas-copy reveal">
+      <span class="eyebrow">The Sky is Our Canvas</span>
+      <h2 class="title">Flown to a Higher Standard</h2>
+      <p class="drop">Every flight departs from one of our private helipads across Bali and the Gili Islands.</p>
+      <p>Every aircraft in the fleet was delivered factory-fresh and is maintained to the highest international aviation standards. Every pilot holds the top certifications in the field.</p>
+      <p>We are also proud to be Bali&rsquo;s first carbon-neutral helicopter operator &mdash; each flight funds active reforestation across the archipelago, because the highest luxury is one the earth can sustain.</p>
+    </div>
+    <div class="canvas-img reveal d1">
+      <img src="images/canvas-view.jpeg" alt="A guest photographing the Bali coastline from the helicopter cabin" loading="lazy" decoding="async" />
+    </div>
+  </div>
+</section>
+
+<!-- ===== STATEMENT BAND ===== -->
+<section class="band" aria-label="The Bali coastline from above">
+  <img src="images/mountain.jpeg" alt="Aerial view of the Bali coastline with the volcanoes rising beyond" loading="lazy" decoding="async" />
+  <div class="band-ov"><p>Lift off from the clifftop.<br/>Land back in time for dinner.</p></div>
+</section>
+
+<!-- ===== TOURS ===== -->
+<section class="section section--bone" id="tours">
+  <div class="container">
+    <div class="center reveal">
+      <span class="eyebrow">Helicopter Tours &middot; from Uluwatu</span>
+      <h2 class="title">Choose Your Route</h2>
+      <div class="rule"></div>
+      <p class="lead">Four signature routes, every one lifting off from Uluwatu and landing back at it &mdash; from a twenty-minute run along the Bukit cliffs to an eighty-minute crossing over Bali&rsquo;s volcanoes. Each is flown privately, for up to four guests.</p>
+    </div>
+    <div class="tours-grid">
+      <figure class="tour reveal">
+        <button class="tour-figure" type="button" aria-label="Enlarge the route map">
+          <img src="images/tour-01-golden-cliffs.jpeg" alt="Uluwatu Signature Coastline Tours — The Golden Cliffs. 20 minutes, private IDR 27,399,000 per helicopter for up to 4 guests. Route: Uluwatu, Melasti Beach, Pandawa Beach, Nusa Dua, Waterblow, GWK, Jimbaran, Dreamland Beach, Uluwatu Temple, Nyang-Nyang Beach, Uluwatu." loading="lazy" decoding="async" />
+          <span class="zoom-badge" aria-hidden="true"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M11 8v6M8 11h6"/></svg></span>
+        </button>
+        <div class="tour-body">
+          <a class="btn btn-solid" href="https://wa.me/6281130075555?text=Hi%21%20I%27m%20staying%20in%20Uluwatu%20and%20I%27d%20like%20to%20book%20the%20Uluwatu%20Signature%20Coastline%20Tours%20%E2%80%94%20The%20Golden%20Cliffs%20%2820%20minutes%2C%20private%20IDR%2027%2C399%2C000%20per%20helicopter%29.%20Could%20you%20let%20me%20know%20which%20departures%20are%20available%3F%20please%20keep%20this%20line%20so%20the%20Uluwatu%20guest%20rate%20is%20applied" target="_blank" rel="noopener">Enquire about this tour<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </figure>
+      <figure class="tour reveal d1">
+        <button class="tour-figure" type="button" aria-label="Enlarge the route map">
+          <img src="images/tour-02-coastal-grandeur.jpeg" alt="The Uluwatu Coastal Grandeur — Surf, Sand and Sacred Stone. 35 minutes, private IDR 34,699,000 per helicopter for up to 4 guests. Route: Uluwatu, Goa Karang Beach, GWK, Jimbaran, Nuanu, Tanah Lot, Berawa, Seminyak, Kuta, Dreamland Beach, Uluwatu Temple, Nyang Nyang Beach, Uluwatu." loading="lazy" decoding="async" />
+          <span class="zoom-badge" aria-hidden="true"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M11 8v6M8 11h6"/></svg></span>
+        </button>
+        <div class="tour-body">
+          <a class="btn btn-solid" href="https://wa.me/6281130075555?text=Hi%21%20I%27m%20staying%20in%20Uluwatu%20and%20I%27d%20like%20to%20book%20the%20The%20Uluwatu%20Coastal%20Grandeur%20%E2%80%94%20Surf%2C%20Sand%20and%20Sacred%20Stone%20%2835%20minutes%2C%20private%20IDR%2034%2C699%2C000%20per%20helicopter%29.%20Could%20you%20let%20me%20know%20which%20departures%20are%20available%3F%20please%20keep%20this%20line%20so%20the%20Uluwatu%20guest%20rate%20is%20applied" target="_blank" rel="noopener">Enquire about this tour<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </figure>
+      <figure class="tour reveal d2">
+        <button class="tour-figure" type="button" aria-label="Enlarge the route map">
+          <img src="images/tour-03-penida-manta.jpeg" alt="Uluwatu Signature Penida Tours — Cliffs & Manta Sanctuary. 50 minutes, private IDR 45,699,000 per helicopter for up to 4 guests. Route: Uluwatu, Melasti Beach, Pandawa Beach, Manta Point, Kelingking Beach, Broken Beach, Nusa Ceningan, Devil's Tears, Nusa Dua, GWK, Dreamland Beach, Uluwatu Temple, Nyang-Nyang Beach, Uluwatu." loading="lazy" decoding="async" />
+          <span class="zoom-badge" aria-hidden="true"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M11 8v6M8 11h6"/></svg></span>
+        </button>
+        <div class="tour-body">
+          <a class="btn btn-solid" href="https://wa.me/6281130075555?text=Hi%21%20I%27m%20staying%20in%20Uluwatu%20and%20I%27d%20like%20to%20book%20the%20Uluwatu%20Signature%20Penida%20Tours%20%E2%80%94%20Cliffs%20%26%20Manta%20Sanctuary%20%2850%20minutes%2C%20private%20IDR%2045%2C699%2C000%20per%20helicopter%29.%20Could%20you%20let%20me%20know%20which%20departures%20are%20available%3F%20please%20keep%20this%20line%20so%20the%20Uluwatu%20guest%20rate%20is%20applied" target="_blank" rel="noopener">Enquire about this tour<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </figure>
+      <figure class="tour reveal d1">
+        <button class="tour-figure" type="button" aria-label="Enlarge the route map">
+          <img src="images/tour-04-volcano-caldera.jpeg" alt="Uluwatu Signature Volcano Tours — Coast to Caldera. 80 minutes, private IDR 67,499,000 per helicopter for up to 4 guests. Route: Uluwatu, Melasti Beach, Pandawa Beach, Nusa Dua, Waterblow, Serangan Beach, Sanur, Ubud, Mount Batur, Jatiluwih Rice Field, Tanah Lot, Nuanu Creative City, Pererenan Beach, Berawa Beach, Seminyak Beach, Kuta Beach, GWK, Uluwatu." loading="lazy" decoding="async" />
+          <span class="zoom-badge" aria-hidden="true"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M11 8v6M8 11h6"/></svg></span>
+        </button>
+        <div class="tour-body">
+          <a class="btn btn-solid" href="https://wa.me/6281130075555?text=Hi%21%20I%27m%20staying%20in%20Uluwatu%20and%20I%27d%20like%20to%20book%20the%20Uluwatu%20Signature%20Volcano%20Tours%20%E2%80%94%20Coast%20to%20Caldera%20%2880%20minutes%2C%20private%20IDR%2067%2C499%2C000%20per%20helicopter%29.%20Could%20you%20let%20me%20know%20which%20departures%20are%20available%3F%20please%20keep%20this%20line%20so%20the%20Uluwatu%20guest%20rate%20is%20applied" target="_blank" rel="noopener">Enquire about this tour<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </figure></div>
+    <p class="note"><strong>Private</strong> books the whole helicopter for up to four guests, on your own schedule. Tap any route map to enlarge it and read the full itinerary. Durations are on-board flight time and may vary with weather and air traffic.</p>
+  </div>
+</section>
+
+<!-- ===== TRANSFERS ===== -->
+<section class="section" id="transfers">
+  <div class="container">
+    <div class="center reveal">
+      <span class="eyebrow">VIP Airport Transfer by Helicopter</span>
+      <h2 class="title">Arrive by Air</h2>
+      <div class="rule"></div>
+      <p class="lead">Ten minutes from Uluwatu to the airport, against an hour or more of Bukit traffic by road. Helicopter transfers to and from Uluwatu &mdash; to Ngurah Rai, across Bali, or out to the islands beyond.</p>
+    </div>
+
+    <!-- NOTE FOR REVIEW — catalogue p.3 ("VIP Airport Transfer by Helicopter") prices the same two
+         products differently to the rate table on p.8: p.3 shows IDR 63,290,000 via Airport and
+         IDR 28,190,000 via Benoa, both marked "car transfer included". The figures below and in the
+         table are p.8's, which carry on-board flight times and match the complete route list.
+         The p.3 pair is NOT published here pending an owner ruling on which page is current. -->
+    <div class="vip-grid reveal">
+      <div class="vip-card">
+        <div class="vip-photo"><img src="images/transfer-benoa.jpeg" alt="Guests arriving by private car and boarding a helicopter at the helipad" loading="lazy" decoding="async" /></div>
+        <div class="vip-body">
+          <span class="vip-tag">Airport Transfer &middot; via Benoa</span>
+          <h3>Uluwatu &mdash; Benoa</h3>
+          <p class="vip-note">10 minutes on board &middot; car transfer from or to the airport included</p>
+          <div class="price"><span class="price-label">Private &middot; per helicopter, up to 4 guests</span><strong>IDR 29,399,000</strong></div>
+          <a class="btn btn-solid" href="https://wa.me/6281130075555?text=Hi%21%20I%27m%20staying%20in%20Uluwatu%20and%20I%27d%20like%20to%20book%20the%20Uluwatu%20%E2%80%94%20Benoa%20transfer%20%2810%20minutes%20on%20board%2C%20car%20transfer%20from%2Fto%20the%20airport%20included%2C%20private%20IDR%2029%2C399%2C000%20per%20helicopter%29.%20Could%20you%20let%20me%20know%20the%20next%20available%20times%3F%20please%20keep%20this%20line%20so%20the%20Uluwatu%20guest%20rate%20is%20applied" target="_blank" rel="noopener">Reserve this transfer</a>
+        </div>
+      </div>
+      <div class="vip-card">
+        <div class="vip-photo"><img src="images/transfer-airport.jpeg" alt="Ngurah Rai International Airport terminal, Bali" loading="lazy" decoding="async" /></div>
+        <div class="vip-body">
+          <span class="vip-tag">Airport Transfer &middot; direct</span>
+          <h3>Uluwatu &mdash; Ngurah Rai</h3>
+          <p class="vip-note">10 minutes on board &middot; direct to Ngurah Rai International Airport</p>
+          <div class="price"><span class="price-label">Private &middot; per helicopter, up to 4 guests</span><strong>IDR 56,399,000</strong></div>
+          <a class="btn btn-solid" href="https://wa.me/6281130075555?text=Hi%21%20I%27m%20staying%20in%20Uluwatu%20and%20I%27d%20like%20to%20book%20the%20Uluwatu%20%E2%80%94%20Ngurah%20Rai%20airport%20transfer%20%2810%20minutes%20on%20board%2C%20direct%2C%20private%20IDR%2056%2C399%2C000%20per%20helicopter%29.%20Could%20you%20let%20me%20know%20the%20next%20available%20times%3F%20please%20keep%20this%20line%20so%20the%20Uluwatu%20guest%20rate%20is%20applied" target="_blank" rel="noopener">Reserve this transfer</a>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="tr-title reveal">Uluwatu Helicopter Transfers &mdash; every route</h3>
+    <div class="tr-wrap reveal">
+      <table class="tr-table">
+        <thead>
+          <tr><th scope="col">Route</th><th scope="col">On-board flight time</th><th scope="col">Private &middot; per helicopter</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Uluwatu &rarr; Bubble Hotel</td><td>5 min</td><td>Rp 23,999,000</td></tr>
+          <tr><td>Uluwatu &rarr; Locca Sea House</td><td>8 min</td><td>Rp 27,799,000</td></tr>
+          <tr><td>Uluwatu &rarr; Airport Ngurah Rai</td><td>10 min</td><td>Rp 56,399,000</td></tr>
+          <tr><td>Uluwatu &rarr; Benoa<span class="sub">with car transfer from / to the airport</span></td><td>10 min</td><td>Rp 29,399,000</td></tr>
+          <tr><td>Uluwatu &rarr; Nuanu Tabanan</td><td>15 min</td><td>Rp 28,899,000</td></tr>
+          <tr><td>Uluwatu &rarr; Nusa Lembongan</td><td>15 min</td><td>Rp 34,899,000</td></tr>
+          <tr><td>Uluwatu &rarr; Kelingking Penida</td><td>18 min</td><td>Rp 35,599,000</td></tr>
+          <tr><td>Uluwatu &rarr; Viceroy Ubud</td><td>20 min</td><td>Rp 43,199,000</td></tr>
+          <tr><td>Uluwatu &rarr; Kuber Ubud</td><td>20 min</td><td>Rp 42,399,000</td></tr>
+          <tr><td>Uluwatu &rarr; Jatiluwih Ecofarm</td><td>25 min</td><td>Rp 48,899,000</td></tr>
+          <tr><td>Uluwatu &rarr; Semaya Penida</td><td>25 min</td><td>Rp 47,999,000</td></tr>
+          <tr><td>Uluwatu &rarr; Gili Trawangan</td><td>45 min</td><td>Rp 71,199,000</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">All rates are one way and book the whole helicopter for up to four guests. Flight times are on-board time and may vary with weather and air traffic.</p>
+    <div class="tr-cta reveal">
+      <a class="btn btn-line" href="https://wa.me/6281130075555?text=Hi%21%20I%27m%20staying%20in%20Uluwatu%20and%20I%27d%20like%20to%20arrange%20a%20helicopter%20transfer.%20Could%20you%20send%20me%20the%20details%20and%20availability%3F%20please%20keep%20this%20line%20so%20the%20Uluwatu%20guest%20rate%20is%20applied" target="_blank" rel="noopener">Enquire about a transfer</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PICNICS ===== -->
+<section class="section section--bone" id="picnics">
+  <div class="container">
+    <div class="center reveal">
+      <span class="eyebrow">Picnic Package &middot; Add-on</span>
+      <h2 class="title">Land for a Picnic</h2>
+      <div class="rule"></div>
+      <p class="lead">Land where the view is. Three picnic set-ups across Bali &mdash; on the sand beneath the cliffs at Nyang Nyang, among the Jatiluwih rice terraces, or on Nusa Penida&rsquo;s east coast &mdash; each laid for two, with the helicopter waiting.</p>
+    </div>
+    <div class="pk-grid reveal"><div class="pk-card"><div class="pk-photo"><img src="images/picnic-bubble.jpeg" alt="Picnic set-up under white umbrellas in the Bubble Garden at Bubble Hotel, Nyang Nyang Beach" loading="lazy" decoding="async" /></div><div class="pk-body"><span class="vip-tag">Nyang Nyang Beach &middot; Pecatu</span><h3>Picnic at Bubble Hotel</h3><p class="pk-inc">Bubble Garden old-school picnic set-up for two &middot; helicopter landing fee and one hour of waiting time included.</p><ul class="pk-menu"><li>Sparkling, ros&eacute;, white or red wine</li><li>Champagne upgrade available</li><li>Charcuterie board</li><li>Garden salad</li><li>Seasonal fruit plate</li><li>Cupcakes &amp; hot cocoa</li></ul><div class="price"><span class="price-label">Special price &middot; for two &middot; tax &amp; service included</span><strong>IDR 20,000,000</strong></div><a class="btn btn-solid" href="https://wa.me/6281130075555?text=Hi%21%20I%27m%20staying%20in%20Uluwatu%20and%20I%27d%20like%20to%20add%20the%20Picnic%20at%20Bubble%20Hotel%2C%20Nyang%20Nyang%20Beach%20%28IDR%2020%2C000%2C000%20for%20two%2C%20includes%20tax%20and%20service%29.%20Could%20you%20let%20me%20know%20which%20tours%20it%20can%20be%20added%20to%20and%20the%20available%20times%3F%20please%20keep%20this%20line%20so%20the%20Uluwatu%20guest%20rate%20is%20applied" target="_blank" rel="noopener">Add this picnic</a></div></div><div class="pk-card"><div class="pk-photo"><img src="images/picnic-jatiluwih.jpeg" alt="Picnic under a red umbrella overlooking the Jatiluwih rice terraces" loading="lazy" decoding="async" /></div><div class="pk-body"><span class="vip-tag">Jatiluwih &middot; Tabanan</span><h3>Picnic at Jatiluwih Eco Farm</h3><p class="pk-inc">Rice-terrace-view picnic set-up for two &middot; helicopter landing fee and one hour of waiting time included.</p><ul class="pk-menu"><li>Green salad</li><li>Creamy tomato soup</li><li>Beef steak</li><li>Chocolate brownies</li><li>Wine, water, tea or coffee</li></ul><div class="price"><span class="price-label">Special price &middot; for two &middot; tax &amp; service included</span><strong>IDR 16,000,000</strong></div><a class="btn btn-solid" href="https://wa.me/6281130075555?text=Hi%21%20I%27m%20staying%20in%20Uluwatu%20and%20I%27d%20like%20to%20add%20the%20Picnic%20at%20Jatiluwih%20Eco%20Farm%2C%20Tabanan%20%28IDR%2016%2C000%2C000%20for%20two%2C%20includes%20tax%20and%20service%29.%20Could%20you%20let%20me%20know%20which%20tours%20it%20can%20be%20added%20to%20and%20the%20available%20times%3F%20please%20keep%20this%20line%20so%20the%20Uluwatu%20guest%20rate%20is%20applied" target="_blank" rel="noopener">Add this picnic</a></div></div><div class="pk-card"><div class="pk-photo"><img src="images/picnic-semaya.jpeg" alt="Guest with a picnic basket on the beach at Semaya Resort, Nusa Penida" loading="lazy" decoding="async" /></div><div class="pk-body"><span class="vip-tag">Suana &middot; Nusa Penida</span><h3>Picnic at Semaya Resort</h3><p class="pk-inc">Beach-view picnic set-up for two &middot; helicopter landing fee and one hour of waiting time included.</p><ul class="pk-menu"><li>Mediterranean sandwich</li><li>Beef burrito</li><li>Fattoush salad</li><li>Charcuterie cured meat</li><li>Tuna Ni&ccedil;oise sandwich</li><li>Fresh fruit &amp; crackers</li><li>Beverage</li></ul><div class="price"><span class="price-label">Special price &middot; for two &middot; tax &amp; service included</span><strong>IDR 20,000,000</strong></div><a class="btn btn-solid" href="https://wa.me/6281130075555?text=Hi%21%20I%27m%20staying%20in%20Uluwatu%20and%20I%27d%20like%20to%20add%20the%20Picnic%20at%20Semaya%20Resort%2C%20Nusa%20Penida%20%28IDR%2020%2C000%2C000%20for%20two%2C%20includes%20tax%20and%20service%29.%20Could%20you%20let%20me%20know%20which%20tours%20it%20can%20be%20added%20to%20and%20the%20available%20times%3F%20please%20keep%20this%20line%20so%20the%20Uluwatu%20guest%20rate%20is%20applied" target="_blank" rel="noopener">Add this picnic</a></div></div></div>
+    <div class="pk-addon reveal">
+      <div class="pk-addon-photo"><img src="images/picnic-flowers.jpeg" alt="Custom wording written in flower petals on the sand" loading="lazy" decoding="async" /></div>
+      <div class="grow">
+        <h3>Flower Petal Arrangement</h3>
+        <p>Custom wording from 10 to 15 letters, laid at the landing site &mdash; proposals, anniversaries, birthdays and special occasions.</p>
+      </div>
+      <div class="price"><span class="price-label">Starts from</span><strong>IDR 2,500,000</strong></div>
+      <a class="btn btn-line" href="https://wa.me/6281130075555?text=Hi%21%20I%27m%20staying%20in%20Uluwatu%20and%20I%27d%20like%20to%20add%20the%20Flower%20Petal%20Arrangement%20%28custom%20wording%2C%20from%20IDR%202%2C500%2C000%29.%20Could%20you%20tell%20me%20more%3F%20please%20keep%20this%20line%20so%20the%20Uluwatu%20guest%20rate%20is%20applied" target="_blank" rel="noopener">Add to a flight</a>
+    </div>
+    <p class="note">A picnic can be added to <strong>any tour that flies above its location</strong>, or to a custom tour by request. Set-ups are for two guests; prices include tax and service.</p>
+  </div>
+</section>
+
+<!-- ===== LOCATIONS ===== -->
+<section class="section" id="locations">
+  <div class="container">
+    <div class="center reveal">
+      <span class="eyebrow">Where Your Journey Starts</span>
+      <h2 class="title">Departing from Uluwatu</h2>
+      <div class="rule"></div>
+      <p class="lead">Your flights lift off from the Uluwatu clifftop. Beyond it, three private helipads open up Bali and the Gili Islands.</p>
+    </div>
+    <div style="margin-top:56px">
+      <div class="loc-card home reveal">
+        <div class="lc-photo">
+          <span class="pin solid">Your departure point</span>
+          <img loading="lazy" decoding="async" src="images/hero-heli.jpeg" alt="A Balicopter helicopter ready for departure" />
+        </div>
+        <div class="lc-body">
+          <div class="lc-region">Bali &middot; Bukit Peninsula</div>
+          <h3>Uluwatu</h3>
+          <p>Every tour and every transfer in this catalogue begins and ends here. Five minutes to Bubble Hotel, ten to Ngurah Rai, fifteen to Nuanu, forty-five to Gili Trawangan.</p><div class="lc-map"><img loading="lazy" decoding="async" src="images/map-uluwatu.jpeg" alt="Map of the Uluwatu landing area on Jalan Goa Lempeh, Pecatu, Uluwatu" /></div>
+          <div class="lc-addr"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg><span>Jalan Goa Lempeh, Pecatu, Kuta Selatan, Badung, Bali 80362<span class="coord">&minus;8.841784, 115.119404</span></span></div>
+          <a class="dir-link" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=-8.841784%2C115.119404">Get directions<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+      <div class="loc-card reveal">
+        <div class="lc-photo">
+          <span class="pin">Nusa Dua</span>
+          <img loading="lazy" decoding="async" src="images/loc-nusadua.jpeg" alt="Guest lounge at Nusa Dua Heliport" />
+        </div>
+        <div class="lc-body">
+          <div class="lc-region">Bali &middot; South</div>
+          <h3>Nusa Dua Heliport</h3>
+          <div class="lc-map"><img loading="lazy" decoding="async" src="images/map-nusadua.jpeg" alt="Map of Nusa Dua Heliport" /></div>
+          <div class="lc-addr"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg><span>Jl. Raya Nusa Dua Selatan, Lot III, Sawangan, Kabupaten Badung, Bali 80363</span></div>
+          <a class="dir-link" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Jl.%20Raya%20Nusa%20Dua%20Selatan%2C%20Lot%20III%2C%20Sawangan%2C%20Kabupaten%20Badung%2C%20Bali%2080363">Get directions<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+      <div class="loc-card reveal">
+        <div class="lc-photo">
+          <span class="pin">Canggu</span>
+          <img loading="lazy" decoding="async" src="images/loc-canggu.jpeg" alt="Helicopter at Nuanu Heliport, Canggu" />
+        </div>
+        <div class="lc-body">
+          <div class="lc-region">Bali &middot; West Coast</div>
+          <h3>Nuanu Heliport</h3>
+          <div class="lc-map"><img loading="lazy" decoding="async" src="images/map-canggu.jpeg" alt="Map of Nuanu Heliport" /></div>
+          <div class="lc-addr"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg><span>94P4+C2X, Beraban, Kec. Kediri, Kabupaten Tabanan, Bali</span></div>
+          <a class="dir-link" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=-8.613833%2C115.105096">Get directions<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+      <div class="loc-card reveal">
+        <div class="lc-photo">
+          <span class="pin">Gili Islands</span>
+          <img loading="lazy" decoding="async" src="images/loc-gili.jpeg" alt="Helicopter at Gili Trawangan Heliport" />
+        </div>
+        <div class="lc-body">
+          <div class="lc-region">Lombok &middot; Gili Trawangan</div>
+          <h3>Gili Trawangan Heliport</h3>
+          <div class="lc-map"><img loading="lazy" decoding="async" src="images/map-gili.jpeg" alt="Map of Gili Trawangan Heliport" /></div>
+          <div class="lc-addr"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg><span>J2M+CR6 Gili Trawangan, Gili Indah, Kec. Pemenang, Kabupaten Lombok Utara, Nusa Tenggara Bar. 83352</span></div>
+          <a class="dir-link" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=-8.36164%2C116.034641">Get directions<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div></div>
+  </div>
+</section>
+
+<!-- ===== FLEET ===== -->
+<section class="section section--bone" id="fleet">
+  <div class="container">
+    <div class="center reveal">
+      <span class="eyebrow">The Fleet</span>
+      <h2 class="title">The Right Aircraft for Every Journey</h2>
+      <div class="rule"></div>
+      <p class="lead">Every aircraft delivered new and maintained to the highest international aviation standards.</p>
+    </div>
+
+    <div class="fleet-block reveal">
+      <div class="fleet-grid">
+        <div class="fleet-info">
+          <h3>Robinson R66</h3>
+          <div class="reg">PK-VPN (2022) &middot; PK-VPX (2023) &middot; PK-VPY (2025)</div>
+          <div class="spec"><span class="k"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>Cruise Speed</span><span class="v">Up to 110 kn (204 km/h)</span></div>
+          <div class="spec"><span class="k"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3v18"/></svg>Max Range</span><span class="v">&asymp; 350 nm (650 km)</span></div>
+          <div class="spec"><span class="k"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="7" r="3"/><path d="M2 21a7 7 0 0 1 14 0"/><circle cx="17" cy="9" r="2.5"/><path d="M16 21a5 5 0 0 1 6 0"/></svg>Capacity</span><span class="v">1 pilot + up to 4 passengers</span></div>
+          <div class="spec"><span class="k"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="7" width="18" height="13"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>Baggage</span><span class="v">18 ft&sup3; &middot; 300 lb (136 kg)</span></div>
+          <p class="spec-note">*Subject to configuration and payload.</p>
+        </div>
+        <div class="fleet-gallery">
+          <img loading="lazy" decoding="async" src="images/r66-1.jpeg" alt="Robinson R66 on the helipad" />
+          <img loading="lazy" decoding="async" src="images/r66-2.jpeg" alt="Robinson R66 in flight" />
+          <img loading="lazy" decoding="async" src="images/r66-3.jpeg" alt="Aviation headset in the R66 cabin" />
+          <img loading="lazy" decoding="async" src="images/r66-4.jpeg" alt="Robinson R66 cockpit" />
+        </div>
+      </div>
+    </div>
+
+    <div class="fleet-block flip reveal">
+      <div class="fleet-grid">
+        <div class="fleet-info">
+          <h3>Bell 505</h3>
+          <div class="reg">PK-DJG (2024)</div>
+          <div class="spec"><span class="k"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>Cruise Speed</span><span class="v">125 kn (231 km/h)</span></div>
+          <div class="spec"><span class="k"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3v18"/></svg>Max Range</span><span class="v">306 nm (567 km)</span></div>
+          <div class="spec"><span class="k"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="7" r="3"/><path d="M2 21a7 7 0 0 1 14 0"/><circle cx="17" cy="9" r="2.5"/><path d="M16 21a5 5 0 0 1 6 0"/></svg>Capacity</span><span class="v">1 pilot + up to 4 passengers</span></div>
+          <div class="spec"><span class="k"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="7" width="18" height="13"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>Baggage</span><span class="v">288 kg</span></div>
+          <p class="spec-note">*Subject to configuration and payload.</p>
+        </div>
+        <div class="fleet-gallery">
+          <img loading="lazy" decoding="async" src="images/bell-1.jpeg" alt="Bell 505 side profile" />
+          <img loading="lazy" decoding="async" src="images/bell-2.jpeg" alt="Bell 505 front view" />
+          <img loading="lazy" decoding="async" src="images/bell-3.jpeg" alt="Bell 505 cabin seating" />
+          <img loading="lazy" decoding="async" src="images/bell-4.jpeg" alt="Bell 505 glass cockpit avionics" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-left">
+        <div class="wm">
+          <span class="n">Uluwatu</span>
+          <span class="t">Helicopter</span>
+        </div>
+        <h2>Arrange Your Flight</h2>
+        <p class="sub">Guests staying in Uluwatu can arrange private helicopter tours and transfers directly &mdash; reach out and we will tailor the flight to your stay.</p>
+        <div class="c-block">
+          <h4>Contact</h4>
+          <div class="c-rows">
+            <a class="c-item" target="_blank" rel="noopener" href="https://wa.me/6281130075555?text=Hi%21%20I%27m%20staying%20in%20Uluwatu%20and%20I%27d%20like%20to%20book%20a%20helicopter%20flight.%20Could%20you%20let%20me%20know%20what%27s%20available%3F%20please%20keep%20this%20line%20so%20the%20Uluwatu%20guest%20rate%20is%20applied"><span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.4L3 21l2.2-5.6A8.4 8.4 0 1 1 21 11.5Z"/></svg></span>+62 811 3007 5555</a>
+          </div>
+        </div>
+      </div>
+      <div class="contact-right"><img loading="lazy" decoding="async" src="images/hero-heli.jpeg" alt="A Balicopter helicopter on the helipad, ready for departure" /></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FLOATING WHATSAPP ===== -->
+<a class="wa-float" href="https://wa.me/6281130075555?text=Hi%21%20I%27m%20staying%20in%20Uluwatu%20and%20I%27d%20like%20to%20book%20a%20helicopter%20flight.%20Could%20you%20let%20me%20know%20what%27s%20available%3F%20please%20keep%20this%20line%20so%20the%20Uluwatu%20guest%20rate%20is%20applied" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+  <span class="wa-label">Chat with us</span>
+  <span class="wa-icon"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.334.101 11.892c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652a12.062 12.062 0 005.71 1.447h.006c6.585 0 11.946-5.335 11.949-11.896C24 8.552 22.759 5.652 20.52 3.45"/></svg></span>
+</a>
+
+<!-- ===== LIGHTBOX ===== -->
+<div class="lb" id="lb"><span class="close" id="lbClose">&times;</span><img id="lbImg" alt="Enlarged view" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /></div>
+
+<script>
+// Hero video: reveal once it can play, so the poster covers the load
+(() => { const v = document.querySelector('.hero-bg video'); if(!v) return;
+  const show = () => v.classList.add('ready');
+  if (v.readyState >= 3) show(); else v.addEventListener('canplay', show, {once:true});
+  setTimeout(show, 4000); })();
+
+// Nav scroll state
+const nav = document.getElementById('nav');
+const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 60);
+onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+
+// Mobile menu
+const burger = document.getElementById('burger');
+const navlinks = document.getElementById('navlinks');
+burger.addEventListener('click', () => navlinks.classList.toggle('mobile-open'));
+navlinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navlinks.classList.remove('mobile-open')));
+
+// Reveal on scroll — enhancement only; content is visible by default without JS
+if ('IntersectionObserver' in window) {
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:0.12, rootMargin:'0px 0px -6% 0px'});
+  document.querySelectorAll('.reveal:not(.in)').forEach(el => io.observe(el));
+  // Safety net: never leave content hidden if IO fails to fire.
+  setTimeout(() => { document.querySelectorAll('.reveal:not(.in)').forEach(el => el.classList.add('in')); }, 3000);
+} else {
+  document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+}
+
+// Active nav link
+const navMap = {};
+document.querySelectorAll('nav.links a').forEach(a => navMap[a.getAttribute('href').slice(1)] = a);
+const spy = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting){
+      document.querySelectorAll('nav.links a').forEach(a => a.classList.remove('active'));
+      if (navMap[e.target.id]) navMap[e.target.id].classList.add('active');
+    }
+  });
+}, {threshold:0.4});
+document.querySelectorAll('section[id]').forEach(s => spy.observe(s));
+
+// Lightbox
+const lb = document.getElementById('lb'), lbImg = document.getElementById('lbImg');
+const openLb = src => { lbImg.src = src; lb.classList.add('open'); document.body.style.overflow='hidden'; };
+const closeLb = () => { lb.classList.remove('open'); document.body.style.overflow=''; };
+// Tour maps: the whole figure is the button, so the badge and any letterboxing are clickable too.
+document.querySelectorAll('.tour-figure').forEach(f => f.addEventListener('click', () => openLb(f.querySelector('img').src)));
+document.querySelectorAll('.fleet-gallery img').forEach(i => i.addEventListener('click', () => openLb(i.src)));
+lbImg.addEventListener('click', e => e.stopPropagation());
+lb.addEventListener('click', closeLb);
+document.getElementById('lbClose').addEventListener('click', closeLb);
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeLb(); });
+</script>
+</body>
+</html>
